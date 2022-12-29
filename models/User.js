@@ -28,13 +28,6 @@ User.init(
                 len: [8],
             },
         },
-        role_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Role',
-                key: 'id',
-            },
-        }
     },
     {
         hooks: {

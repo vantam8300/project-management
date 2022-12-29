@@ -21,10 +21,10 @@ Project.init(
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
-      user_id: {
+      employee_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'employee',
           key: 'id',
         },
       },

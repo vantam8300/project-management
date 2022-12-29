@@ -2,16 +2,19 @@ const User = require("./User");
 const Project = require("./Project");
 const Role = require("./Role");
 const Task = require("./Task");
-const UserProject = require("./UseProject");
+const EmployeeProject = require("./EmployeeProject");
+const Employee = require("./Employee");
 
+User.hasOne(Employee);
+Employee.belongsTo(User);
 
-User.belongsToMany(Project, { through: UserProject });
-Project.belongsToMany(User, { through: UserProject });
+Employee.belongsToMany(Project, { through: EmployeeProject });
+Project.belongsToMany(Employee, { through: EmployeeProject });
 
-Role.hasMany(User);
-User.belongsTo(Role);
+Role.hasMany(Employee);
+Employee.belongsTo(Role);
 
 Project.hasMany(Task);
 Task.belongsTo(Project);
 
-module.exports = { User, Task, Project, Role };
+module.exports = { User, Task, Project, Role, EmployeeProject, Employee };
